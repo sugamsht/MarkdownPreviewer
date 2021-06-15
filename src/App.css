@@ -1,38 +1,122 @@
-.App {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+html { font-size: 10px; }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body { 
+  box-sizing: border-box;
+  width: 100%;
+  min-height: auto;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  background-image: url(https://wallpapercave.com/wp/wp6350571.jpg);
+  background-color: #61dbfb;
+}
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+.App {
+  display: grid;
+  grid-template-areas:
+    'title title'
+    'editor preview';
+  place-items: center;
+  gap: 40px;
+  padding: 30px 0;
+}
+
+#title {
+  grid-area: title;
+  color: #61dbfb;
+  font-family: 'Rubik', sans-serif;
+  text-align: center;
+  font-size: 5rem;
+  text-shadow: 3px 3px #333;
+}
+
+#editor,
+#preview {
+  width: 600px;
+  height: 700px;
+  padding: 24px 14px 14px 14px;
+  border: none;
+  border-radius: 3px;
+}
+
+#editor {
+  grid-area: editor;
+  background: #eee;
+  box-shadow: 5px 5px #448484;
+}
+
+#preview {
+  grid-area: preview;
+  background: #3b444b;
   color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.39rem;
+  box-shadow: 5px 5px #448484;
+  overflow-y: auto;
 }
 
-.App-link {
-  color: #61dafb;
+code {
+    /* background: black; */
+  color:white;
+    padding: 1px 4px 2px 4px;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  pre {
+    background: black;
+    padding: 5px 0 5px 5px;
+  }
+  
+   table {
+    border-collapse: collapse;
+  }
+
+   td,
+  th {
+    border: 2px solid white;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+
+a { color: #D6EFA3; }
+
+li { margin-left: 3rem; }
+
+blockquote {
+  margin-left: 2rem;
+  padding-left: 0.6rem;
+  border-left: 0.4rem solid grey;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media only screen and (max-width: 1000px) {
+  .App {
+    grid-template-areas:
+      'title'
+      'editor'
+      'preview';
   }
-  to {
-    transform: rotate(360deg);
+
+  #editor,
+  #preview {
+    width: 90vw;
+    height: 400px;
   }
+}
+
+img {
+  display: block;
+  margin: auto;
+  padding: 1em;
 }
